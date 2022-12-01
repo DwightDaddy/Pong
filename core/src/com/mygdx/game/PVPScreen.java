@@ -100,7 +100,7 @@ public class PVPScreen implements Screen {
 
 	@Override
 	public void dispose () {
-
+		music.dispose();
 	}
 
 	public void reset() {

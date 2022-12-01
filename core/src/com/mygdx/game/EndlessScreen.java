@@ -178,6 +178,5 @@ public class EndlessScreen implements Screen {
     @Override
     public void dispose () {
         music.dispose();
-
     }
 }

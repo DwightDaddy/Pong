@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -14,6 +15,7 @@ public class AIScreen implements Screen {
     AIPaddle rightPaddle;
     Ball ball;
     Vector2 score = new Vector2(0, 0);
+    Music music;
     public AIScreen(final Pong game, OrthographicCamera camera) {
         this.game = game;
         this.camera = camera;
@@ -25,6 +27,12 @@ public class AIScreen implements Screen {
         // create ball
         ball = new Ball(camera, leftPaddle, rightPaddle);
         rightPaddle.setBall(ball);
+
+        // create music
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/gameMusic.mp3"));
+        music.setLooping(true);
+        music.setVolume(0.25f);
+        music.play();
     }
 
     @Override
@@ -94,7 +102,7 @@ public class AIScreen implements Screen {
 
     @Override
     public void dispose () {
-
+        music.dispose();
     }
 
     public void reset() {
