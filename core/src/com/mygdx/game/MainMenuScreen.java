@@ -52,32 +52,36 @@ public class MainMenuScreen implements Screen {
         newPVPGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.changeScreen(Pong.PVP);
                 dispose();
+                game.changeScreen(Pong.PVP);
+
             }
         });
         // Endless game listener
         newEndlessGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.changeScreen(Pong.ENDLESS);
                 dispose();
+                game.changeScreen(Pong.ENDLESS);
+
             }
         });
         // AI game listener
         newAIGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.changeScreen(Pong.AI);
                 dispose();
+                game.changeScreen(Pong.AI);
+
             }
         });
         // Scoreboard listener
         scoreboard.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.changeScreen(Pong.SCORE);
                 dispose();
+                game.changeScreen(Pong.SCORE);
+
             }
         });
 

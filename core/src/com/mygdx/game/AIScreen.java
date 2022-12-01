@@ -75,8 +75,9 @@ public class AIScreen implements Screen {
         }
 
         if (score.x >= 5 || score.y >= 5 || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            game.changeScreen(Pong.MENU);
             dispose();
+            game.changeScreen(Pong.MENU);
+
         }
     }
 
@@ -103,6 +104,8 @@ public class AIScreen implements Screen {
     @Override
     public void dispose () {
         music.dispose();
+        leftPaddle.dispose();
+        rightPaddle.dispose();
     }
 
     public void reset() {

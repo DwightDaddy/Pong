@@ -37,6 +37,7 @@ public class ScoreboardScreen implements Screen {
                     System.err.println("Not enough data in scores.txt file.");
                 }
                 count++;
+                scnr.close();
             }
         } catch (FileNotFoundException e) {
             System.err.println("Could not find scores.txt file.");
@@ -70,8 +71,9 @@ public class ScoreboardScreen implements Screen {
 
         // close scoreboard when Escape key pressed
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            game.changeScreen(Pong.MENU);
             dispose();
+            game.changeScreen(Pong.MENU);
+
         }
     }
 

@@ -82,7 +82,8 @@ public class EndlessScreen implements Screen {
         if (ball.sprite.getX() < camera.viewportWidth/2 && ball.collide()) {
             score++;
         }
-
+        // update ball
+        ball.update();
         // if game ends or Escape key is pressed update scores and go to main menu
         if (ball.sprite.getX() < 0 || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             int count = 0;
@@ -146,13 +147,10 @@ public class EndlessScreen implements Screen {
                 }
             }
 
-
-            game.changeScreen(Pong.MENU);
             dispose();
-        }
+            game.changeScreen(Pong.MENU);
 
-        // update ball
-        ball.update();
+        }
     }
 
     @Override
@@ -178,5 +176,7 @@ public class EndlessScreen implements Screen {
     @Override
     public void dispose () {
         music.dispose();
+        leftPaddle.dispose();
+        rightPaddle.dispose();
     }
 }

@@ -38,4 +38,8 @@ public abstract class Paddle {
     public Rectangle getBoundingBox() {
         return sprite.getBoundingRectangle();
     }
+
+    public void dispose() {
+        sprite.getTexture().dispose();
+    }
 }
