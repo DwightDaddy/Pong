@@ -11,7 +11,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Ball {
+public class Ball implements Drawable {
     final OrthographicCamera camera;
     final Sprite sprite;
     final Paddle leftPaddle;
@@ -87,8 +87,10 @@ public class Ball {
 
         velocity.x = 0;
         velocity.y = 0;
-        start = System.currentTimeMillis();
-        while (System.currentTimeMillis() - start < 500);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ignored){
+        }
 
         velocity.x = 5;
         velocity.y = MathUtils.random(-3f, -0.5f);

@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class ScoreboardScreen implements Screen {
     final Pong game;
     OrthographicCamera camera;
-    Scanner scnr;
     LinkedHashMap<String, String> scores;
 
     public ScoreboardScreen(final Pong game, OrthographicCamera camera) {
@@ -22,8 +21,7 @@ public class ScoreboardScreen implements Screen {
 
         scores = new LinkedHashMap<>();
 
-        try {
-            scnr = new Scanner(Gdx.files.internal("assets/scores/scores.txt").file());
+        try (Scanner scnr = new Scanner(Gdx.files.internal("assets/scores/scores.txt").file())) {
             scnr.skip("");
             int count = 0;
             while (count < 10 && scnr.hasNext()) {
@@ -37,7 +35,7 @@ public class ScoreboardScreen implements Screen {
                     System.err.println("Not enough data in scores.txt file.");
                 }
                 count++;
-                scnr.close();
+
             }
         } catch (FileNotFoundException e) {
             System.err.println("Could not find scores.txt file.");
@@ -52,7 +50,7 @@ public class ScoreboardScreen implements Screen {
     @Override
     public void render(float delta) {
         // set background color
-        ScreenUtils.clear(0, 0, 0.2f, 1);
+        ScreenUtils.clear(0, 0.4f, 0.15f, 1);
 
         // update camera
         camera.update();

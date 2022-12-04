@@ -16,7 +16,7 @@ public class EndlessScreen implements Screen {
     final Pong game;
     final OrthographicCamera camera;
     String username = "";
-    leftPaddle leftPaddle;
+    LeftPaddle leftPaddle;
     EndlessPaddle rightPaddle;
     Ball ball;
     Integer score = 0;
@@ -30,7 +30,7 @@ public class EndlessScreen implements Screen {
         this.camera = camera;
 
         // create paddles
-        leftPaddle = new leftPaddle(camera);
+        leftPaddle = new LeftPaddle(camera);
 
         rightPaddle = new EndlessPaddle(camera);
 
@@ -60,7 +60,7 @@ public class EndlessScreen implements Screen {
     @Override
     public void render(float delta) {
         // set background color
-        ScreenUtils.clear(0, 0, 0.2f, 1);
+        ScreenUtils.clear(0, 0.15f, 0.4f, 1);
 
         // update camera
         camera.update();
@@ -97,7 +97,7 @@ public class EndlessScreen implements Screen {
                             break;
                         } else if (this.score > Integer.parseInt(entry.getValue())) {
                             // text input listener for username input
-                            ScreenUtils.clear(0, 0, 0.2f, 1);
+                            ScreenUtils.clear(0, 0.15f, 0.4f, 1);
                             while (username.equals("")) {
                                 username = JOptionPane.showInputDialog(null, "Please enter your name.");
                             }
@@ -110,7 +110,7 @@ public class EndlessScreen implements Screen {
                     }
                 } else {
                     // text input listener for username input
-                    ScreenUtils.clear(0, 0, 0.2f, 1);
+                    ScreenUtils.clear(0, 0.15f, 0.4f, 1);
                     while (username.equals("")) {
                         username = JOptionPane.showInputDialog(null, "Please enter your name.");
                     }
@@ -146,10 +146,8 @@ public class EndlessScreen implements Screen {
                     n++;
                 }
             }
-
             dispose();
             game.changeScreen(Pong.MENU);
-
         }
     }
 

@@ -11,8 +11,8 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class PVPScreen implements Screen {
 	Pong game;
 	OrthographicCamera camera;
-	leftPaddle leftPaddle;
-	rightPaddle rightPaddle;
+	LeftPaddle leftPaddle;
+	RightPaddle rightPaddle;
 	Ball ball;
 	Vector2 score = new Vector2(0, 0);
 	Music music;
@@ -20,9 +20,9 @@ public class PVPScreen implements Screen {
 		this.game = game;
 		this.camera = camera;
 		// create paddles
-		leftPaddle = new leftPaddle(camera);
+		leftPaddle = new LeftPaddle(camera);
 
-		rightPaddle = new rightPaddle(camera);
+		rightPaddle = new RightPaddle(camera);
 
 		// create ball
 		ball = new Ball(camera, leftPaddle, rightPaddle);
@@ -41,7 +41,7 @@ public class PVPScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		// set background color
-		ScreenUtils.clear(0, 0, 0.2f, 1);
+		ScreenUtils.clear(0, 0.15f, 0.4f, 1);
 
 		// update camera
 		camera.update();

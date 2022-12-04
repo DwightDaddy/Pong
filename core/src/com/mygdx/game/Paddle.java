@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 
-public abstract class Paddle {
+public abstract class Paddle implements Drawable{
     final OrthographicCamera camera;
     final Sprite sprite;
 

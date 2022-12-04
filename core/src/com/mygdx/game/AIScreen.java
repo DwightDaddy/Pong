@@ -11,7 +11,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 public class AIScreen implements Screen {
     Pong game;
     OrthographicCamera camera;
-    leftPaddle leftPaddle;
+    LeftPaddle leftPaddle;
     AIPaddle rightPaddle;
     Ball ball;
     Vector2 score = new Vector2(0, 0);
@@ -20,7 +20,7 @@ public class AIScreen implements Screen {
         this.game = game;
         this.camera = camera;
         // create paddles
-        leftPaddle = new leftPaddle(camera);
+        leftPaddle = new LeftPaddle(camera);
 
         rightPaddle = new AIPaddle(camera);
 
@@ -43,7 +43,7 @@ public class AIScreen implements Screen {
     @Override
     public void render(float delta) {
         // set background color
-        ScreenUtils.clear(0, 0, 0.2f, 1);
+        ScreenUtils.clear(0, 0.15f, 0.4f, 1);
 
         // update camera
         camera.update();

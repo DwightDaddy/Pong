@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
-public class leftPaddle extends Paddle implements Controllable{
-    public leftPaddle(OrthographicCamera camera) {
+public class LeftPaddle extends Paddle implements Drawable {
+    public LeftPaddle(OrthographicCamera camera) {
         super(camera);
         sprite.setPosition(camera.viewportWidth/10 - sprite.getWidth()/2,
                 camera.viewportHeight/2 - sprite.getHeight()/2);
