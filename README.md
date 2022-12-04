@@ -8,7 +8,7 @@ To control the paddle on the right use the arrow keys
 The paddle on the left is the player's paddle during modes V. AI  
 Hit ESC to return to the main menu after entering a game  
   
-There is a bug I could not manage to fix where if you  
+There is a bug I could not manage to fix where if you
 start a new game three times the application will crash.  
   
 I hope you enjoy my project!  
