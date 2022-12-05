@@ -49,7 +49,6 @@ public class Ball implements Drawable {
         // check if ball hit paddle
         if (collide()) {
             hits++;
-            System.out.println(hits);
             while (collide()) {
                 if (velocity.x < 0) {
                     sprite.translateX(1);

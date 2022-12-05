@@ -43,7 +43,7 @@ public class EndlessScreen implements Screen {
 
         try {
             scores = new ScoreboardScreen(game, camera).scores.entrySet();
-            file = new FileWriter(Gdx.files.internal("assets/scores/scores.txt").file());
+            file = new FileWriter(Gdx.files.internal("scores.txt").file());
             writer = new PrintWriter(file, true);
         } catch (IOException e) {
             System.err.println("Could not find scores.txt file.");

@@ -21,7 +21,7 @@ public class ScoreboardScreen implements Screen {
 
         scores = new LinkedHashMap<>();
 
-        try (Scanner scnr = new Scanner(Gdx.files.internal("assets/scores/scores.txt").file())) {
+        try (Scanner scnr = new Scanner(Gdx.files.internal("scores.txt").file())) {
             scnr.skip("");
             int count = 0;
             while (count < 10 && scnr.hasNext()) {
