@@ -21,6 +21,7 @@ public class Ball implements Drawable {
     Vector2 velocity;
     ParticleEffect effect;
     Sound sound;
+    int hits;
     public Ball(OrthographicCamera camera, Paddle left, Paddle right) {
         this.camera = camera;
         sprite = new Sprite(new Texture(Gdx.files.internal("ball.png")));
@@ -32,6 +33,7 @@ public class Ball implements Drawable {
         leftPaddle = left;
         rightPaddle = right;
         start = System.currentTimeMillis();
+        hits = 0;
 
         effect = new ParticleEffect();
         effect.loadEmitters(Gdx.files.internal("particles/collision.p"));
@@ -46,6 +48,8 @@ public class Ball implements Drawable {
 
         // check if ball hit paddle
         if (collide()) {
+            hits++;
+            System.out.println(hits);
             while (collide()) {
                 if (velocity.x < 0) {
                     sprite.translateX(1);

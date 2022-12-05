@@ -75,15 +75,15 @@ public class EndlessScreen implements Screen {
         leftPaddle.draw(game.batch);
         rightPaddle.draw(game.batch);
         ball.draw(game.batch);
+        score = ball.hits/2;
         game.font.draw(game.batch, score.toString(),
                 camera.viewportWidth/2 - 50, camera.viewportHeight - 50);
         game.batch.end();
 
-        if (ball.sprite.getX() < camera.viewportWidth/2 && ball.collide()) {
-            score++;
-        }
+
         // update ball
         ball.update();
+
         // if game ends or Escape key is pressed update scores and go to main menu
         if (ball.sprite.getX() < 0 || Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             int count = 0;
@@ -133,8 +133,6 @@ public class EndlessScreen implements Screen {
                     writer.println(entry.getKey() + "," + entry.getValue());
                     n++;
                 }
-
-
             } else {
                 // write to scores.txt the new scores
                 int n = 0;
